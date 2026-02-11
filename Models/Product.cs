@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace EcommerceRazorApp.Models
 {
@@ -32,6 +33,7 @@ namespace EcommerceRazorApp.Models
 
         // Navigation properties
         [ForeignKey("CategoryId")]
+        [ValidateNever]
         public virtual Category Category { get; set; } = null!;
     }
 }

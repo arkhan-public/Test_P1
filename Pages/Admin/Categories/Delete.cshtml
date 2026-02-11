@@ -1,0 +1,27 @@
+@page "{id:int}"
+@model AdminCategoriesDeleteModel
+@{
+    ViewData["Title"] = "Delete Category";
+}
+<div class="container my-4">
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h4 class="mb-0">Delete Category</h4>
+        </div>
+
+        <div class="card-body">
+            <p class="text-warning">Are you sure you want to delete category "<strong>@Model.Category?.Name</strong>"?</p>
+
+            <form method="post" class="d-flex gap-2">
+                <input type="hidden" asp-for="Category.CategoryId" />
+                <button type="submit" class="btn btn-danger">Yes, delete</button>
+                <a class="btn btn-secondary" asp-page="Index">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

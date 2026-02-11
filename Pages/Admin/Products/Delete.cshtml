@@ -1,0 +1,27 @@
+@page "{id:int}"
+@model AdminProductsDeleteModel
+@{
+    ViewData["Title"] = "Delete Product";
+}
+<div class="container my-4">
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
+
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h4 class="mb-0">Delete Product</h4>
+        </div>
+
+        <div class="card-body">
+            <p class="text-warning">Are you sure you want to delete product "<strong>@Model.Product?.Name</strong>"?</p>
+
+            <form method="post" class="d-flex gap-2">
+                <input type="hidden" asp-for="Product.ProductId" />
+                <button type="submit" class="btn btn-danger">Yes, delete</button>
+                <a class="btn btn-secondary" asp-page="Index">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

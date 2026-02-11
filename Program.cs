@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using EcommerceRazorApp.Data;
 using EcommerceRazorApp.Services.Interfaces;
 using EcommerceRazorApp.Services.Implementations;
+using EcommerceRazorApp.Repositories.Interfaces;
+using EcommerceRazorApp.Repositories.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +35,11 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
+
+// Register repositories
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 // Configure Logging
 builder.Logging.ClearProviders();

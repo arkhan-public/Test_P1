@@ -1,0 +1,53 @@
+@page
+@model AdminIndexModel
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<div class="container my-4">
+
+    <!-- Hero / Dashboard -->
+    <div class="bg-light p-4 rounded shadow-sm mb-4">
+        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between">
+            <div>
+                <h1 class="h3 mb-1">Admin Panel</h1>
+                <p class="text-muted mb-0">Manage products, categories and quick site operations.</p>
+            </div>
+
+            <div class="d-flex gap-3 mt-3 mt-md-0">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="h1 mb-0">@Model.ProductCount</div>
+                        <small class="text-muted">Products</small>
+                    </div>
+                </div>
+
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="h1 mb-0">@Model.CategoryCount</div>
+                        <small class="text-muted">Categories</small>
+                    </div>
+                </div>
+
+                <div class="card text-center d-none d-md-block">
+                    <div class="card-body">
+                        <div class="h1 mb-0">@DateTime.UtcNow.ToString("yyyy-MM-dd")</div>
+                        <small class="text-muted">UTC Date</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <div class="d-flex flex-column flex-sm-row gap-2">
+                <a class="btn btn-primary" href="/Admin/Products">Manage Products</a>
+                <a class="btn btn-secondary" href="/Admin/Categories">Manage Categories</a>
+                <a class="btn btn-outline-dark" href="/Admin">Refresh</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-muted small">
+        Admin pages are hidden from the public navigation. Use direct links or bookmarks to access them.
+    </div>
+</div>

@@ -1,0 +1,23 @@
+@page "{id:int}"
+@model AdminCategoriesDetailsModel
+@{
+    ViewData["Title"] = "Category Details";
+}
+<div class="container my-4">
+    <div class="card shadow-sm">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <h4 class="mb-0">@Model.Category.Name</h4>
+                <small class="text-muted">ID: @Model.Category.CategoryId</small>
+            </div>
+            <div>
+                <a class="btn btn-warning btn-sm" asp-page="Edit" asp-route-id="@Model.Category.CategoryId">Edit</a>
+                <a class="btn btn-secondary btn-sm" asp-page="Index">Back</a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <p class="mb-0">@Model.Category.Description</p>
+        </div>
+    </div>
+</div>
